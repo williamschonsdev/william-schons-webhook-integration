@@ -30,6 +30,20 @@ A WordPress plugin that automatically sends WooCommerce order and customer data 
 ### HPOS Compatible
 Fully compatible with WooCommerce High-Performance Order Storage (HPOS).
 
+## Screenshots
+
+### Modern Glassmorphism Interface
+![Plugin Settings](assets/screenshots/screenshot-1.png)
+*Main configuration page with webhook URL and event toggles*
+
+### Event Management
+![Event Toggles](assets/screenshots/screenshot-2.png)
+*Apple-style toggles for Orders and Customers events with individual webhook fields*
+
+### Order Status Filtering
+![Status Filtering](assets/screenshots/screenshot-3.png)
+*Select specific order statuses to monitor or leave empty for all*
+
 ## Installation
 
 1. Download the plugin files

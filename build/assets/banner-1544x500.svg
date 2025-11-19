@@ -1,0 +1,80 @@
+<svg width="1544" height="500" viewBox="0 0 1544 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background Gradient -->
+  <rect width="1544" height="500" fill="url(#gradient1)"/>
+  
+  <!-- Glassmorphism Circles -->
+  <circle cx="200" cy="100" r="150" fill="url(#gradient2)" opacity="0.3" filter="url(#blur1)"/>
+  <circle cx="1400" cy="400" r="180" fill="url(#gradient3)" opacity="0.25" filter="url(#blur1)"/>
+  <circle cx="800" cy="250" r="120" fill="url(#gradient4)" opacity="0.2" filter="url(#blur1)"/>
+  
+  <!-- Main Content -->
+  <g transform="translate(100, 150)">
+    <!-- Webhook Icon -->
+    <g transform="translate(0, 0)">
+      <circle cx="60" cy="60" r="55" fill="white" opacity="0.2"/>
+      <circle cx="60" cy="60" r="45" fill="white" opacity="0.3"/>
+      <path d="M60 30 L80 50 L60 70 L40 50 Z" fill="#667eea" stroke="white" stroke-width="3"/>
+      <path d="M45 60 L75 60 M60 45 L60 75" stroke="white" stroke-width="3" stroke-linecap="round"/>
+    </g>
+    
+    <!-- Arrow -->
+    <g transform="translate(150, 45)">
+      <path d="M0 15 L80 15" stroke="white" stroke-width="4" stroke-linecap="round"/>
+      <path d="M70 5 L85 15 L70 25" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    </g>
+    
+    <!-- N8N Logo Style -->
+    <g transform="translate(270, 0)">
+      <rect width="120" height="120" rx="20" fill="white" opacity="0.2"/>
+      <rect x="10" y="10" width="100" height="100" rx="15" fill="white" opacity="0.3"/>
+      <text x="60" y="75" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="white" text-anchor="middle">n8n</text>
+    </g>
+    
+    <!-- Title -->
+    <text x="450" y="50" font-family="Arial, sans-serif" font-size="56" font-weight="bold" fill="white">N8N WooCommerce</text>
+    <text x="450" y="95" font-family="Arial, sans-serif" font-size="32" fill="white" opacity="0.9">Real-time webhook integration</text>
+  </g>
+  
+  <!-- Features -->
+  <g transform="translate(120, 330)">
+    <g>
+      <circle cx="10" cy="10" r="8" fill="#34c759"/>
+      <text x="30" y="16" font-family="Arial, sans-serif" font-size="20" fill="white">Orders & Customers</text>
+    </g>
+    <g transform="translate(250, 0)">
+      <circle cx="10" cy="10" r="8" fill="#34c759"/>
+      <text x="30" y="16" font-family="Arial, sans-serif" font-size="20" fill="white">Glassmorphism UI</text>
+    </g>
+    <g transform="translate(500, 0)">
+      <circle cx="10" cy="10" r="8" fill="#34c759"/>
+      <text x="30" y="16" font-family="Arial, sans-serif" font-size="20" fill="white">HPOS Compatible</text>
+    </g>
+    <g transform="translate(750, 0)">
+      <circle cx="10" cy="10" r="8" fill="#34c759"/>
+      <text x="30" y="16" font-family="Arial, sans-serif" font-size="20" fill="white">Individual Webhooks</text>
+    </g>
+  </g>
+  
+  <!-- Gradients -->
+  <defs>
+    <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:0.5" />
+    </linearGradient>
+    <linearGradient id="gradient3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#764ba2;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#667eea;stop-opacity:0.5" />
+    </linearGradient>
+    <linearGradient id="gradient4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#667eea;stop-opacity:0.3" />
+    </linearGradient>
+    <filter id="blur1">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="15" />
+    </filter>
+  </defs>
+</svg>

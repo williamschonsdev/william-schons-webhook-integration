@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: N8N Woo Webhook Integration
- * Plugin URI: https://williamschons.com.br
+ * Plugin URI: https://github.com/williamschonsdev/n8n-woocommerce
  * Description: Envia dados completos de pedidos do WooCommerce para webhook do N8N
  * Version: 1.0.1
  * Author: William Schons

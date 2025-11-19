@@ -1,4 +1,4 @@
-=== N8N WooCommerce Webhook ===
+=== N8N Woo Webhook Integration ===
 Contributors: williamschons
 Tags: n8n, woocommerce, webhook, automation, integration
 Requires at least: 5.0

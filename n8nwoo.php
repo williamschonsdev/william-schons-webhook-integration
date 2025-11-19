@@ -6,7 +6,9 @@
  * Version: 1.0.1
  * Author: William Schons
  * Author URI: https://williamschons.com.br
- * Text Domain: n8nwoo
+ * License: GPL-2.0+
+ * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
+ * Text Domain: n8n-woo-webhook-integration
  * Requires at least: 5.0
  * Requires PHP: 7.4
  * WC requires at least: 5.0

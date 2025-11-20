@@ -1,0 +1,29 @@
+# Español - William Schons Webhook Integration
+msgid ""
+msgstr ""
+"Project-Id-Version: William Schons Webhook Integration 1.0.1\n"
+"Language: es_ES\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Webhook Settings"
+msgstr "Configuración de Webhook"
+
+msgid "Settings"
+msgstr "Configuración"
+
+msgid "WS Webhook Integration"
+msgstr "WS Integración de Webhook"
+
+msgid "Configure your webhook URL and choose which events you want to monitor"
+msgstr "Configure la URL del webhook y elija qué eventos desea monitorear"
+
+msgid "Webhook URL"
+msgstr "URL del Webhook"
+
+msgid "https://your-webhook-url.com/endpoint"
+msgstr "https://tu-url-webhook.com/endpoint"
+
+msgid "Paste the complete webhook URL that will receive the data"
+msgstr "Pegue la URL completa del webhook que recibirá los datos"

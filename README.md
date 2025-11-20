@@ -1,4 +1,4 @@
-# N8N Woo Webhook Integration
+# Schons Webhook Integration for N8N and WooCommerce
 
 A WordPress plugin that automatically sends WooCommerce order and customer data to N8N webhooks in real-time. Built with a modern glassmorphism UI and Apple-style toggles.
 

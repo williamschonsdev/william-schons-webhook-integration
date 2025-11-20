@@ -42,6 +42,7 @@ class N8NWoo {
         // Admin menu
         add_action('admin_menu', array($this, 'add_admin_menu'));
         add_action('admin_init', array($this, 'register_settings'));
+        add_action('admin_enqueue_scripts', array($this, 'enqueue_admin_menu_styles'));
         
         // WooCommerce hooks - Orders
         add_action('woocommerce_new_order', array($this, 'on_order_created'), 10, 1);
@@ -68,13 +69,103 @@ class N8NWoo {
     }
     
     public function add_admin_menu() {
-        add_options_page(
-            'N8N Webhook Settings',
-            'N8N Webhook',
+        // Menu principal personalizado no sidebar
+        add_menu_page(
+            'WS Webhook', // Page title
+            'WS Webhook', // Menu title
+            'manage_options', // Capability
+            'ws-webhook', // Menu slug
+            array($this, 'settings_page'), // Callback function
+            $this->get_menu_icon(), // Icon
+            58 // Position (58 = after Settings)
+        );
+        
+        // Submenu "Settings" dentro do menu principal
+        add_submenu_page(
+            'ws-webhook', // Parent slug
+            __('Webhook Settings', 'william-schons-webhook-integration'),
+            __('Settings', 'william-schons-webhook-integration'),
             'manage_options',
-            'n8nwoo-settings',
+            'ws-webhook', // Same slug as parent to avoid duplicate
             array($this, 'settings_page')
         );
+    }
+    
+    /**
+     * Retorna o ícone SVG personalizado para o menu
+     */
+    private function get_menu_icon() {
+        // Ícone SVG base64 (webhook icon com gradiente roxo)
+        return 'data:image/svg+xml;base64,' . base64_encode('
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+                <defs>
+                    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+                    </linearGradient>
+                </defs>
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" fill="url(#grad1)"/>
+                <circle cx="12" cy="12" r="3" fill="url(#grad1)"/>
+                <circle cx="6" cy="12" r="2" fill="url(#grad1)"/>
+                <circle cx="18" cy="12" r="2" fill="url(#grad1)"/>
+                <circle cx="12" cy="6" r="2" fill="url(#grad1)"/>
+                <circle cx="12" cy="18" r="2" fill="url(#grad1)"/>
+            </svg>
+        ');
+    }
+    
+    /**
+     * Adiciona estilos personalizados para o menu admin
+     */
+    public function enqueue_admin_menu_styles() {
+        ?>
+        <style>
+            /* Estilo personalizado para o menu WS Webhook */
+            #adminmenu #toplevel_page_ws-webhook {
+                position: relative;
+            }
+            
+            #adminmenu #toplevel_page_ws-webhook .wp-menu-image img {
+                width: 20px !important;
+                height: 20px !important;
+                padding: 0 !important;
+                opacity: 1 !important;
+            }
+            
+            /* Efeito gradiente no hover */
+            #adminmenu #toplevel_page_ws-webhook:hover .wp-menu-name,
+            #adminmenu #toplevel_page_ws-webhook.current .wp-menu-name {
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                font-weight: 600;
+            }
+            
+            /* Borda lateral colorida quando ativo */
+            #adminmenu #toplevel_page_ws-webhook.current::before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 0;
+                bottom: 0;
+                width: 4px;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                border-radius: 0 2px 2px 0;
+            }
+            
+            /* Fundo com leve gradiente no hover */
+            #adminmenu #toplevel_page_ws-webhook:hover {
+                background: linear-gradient(90deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
+            }
+            
+            /* Submenu estilizado */
+            #adminmenu #toplevel_page_ws-webhook .wp-submenu a:hover {
+                color: #667eea !important;
+                font-weight: 500;
+            }
+        </style>
+        <?php
     }
     
     public function register_settings() {

@@ -2,7 +2,7 @@
 /**
  * Plugin Name: William Schons Webhook Integration
  * Plugin URI: https://github.com/williamschonsdev/william-schons-webhook-integration
- * Description: Send complete WooCommerce order and customer data to custom webhooks for automation workflows like Make or N8N | Envia dados completos de pedidos e clientes do WooCommerce para webhooks personalizados como Make, N8N | Envía datos completos de pedidos y clientes de WooCommerce a webhooks personalizados como Make, N8N
+ * Description: Send WooCommerce data to custom webhooks for automation (N8N, Make, Zapier). NOT an official WooCommerce or N8N plugin. Independent third-party integration by William Schons | Envia dados do WooCommerce para webhooks personalizados. NÃO é plugin oficial WooCommerce ou N8N. Integração independente | Envía datos de WooCommerce a webhooks. NO es plugin oficial de WooCommerce o N8N. Integración independiente
  * Version: 1.0.2
  * Author: William Schons
  * Author URI: https://williamschons.com.br

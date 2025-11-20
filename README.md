@@ -4,7 +4,9 @@ A WordPress plugin that automatically sends WooCommerce order and customer data 
 
 Perfect for automation workflows with **N8N, Zapier, Make.com, Power Automate**, or any custom webhook endpoint.
 
-![Version](https://img.shields.io/badge/version-1.0.1-blue.svg)
+**⚠️ Disclaimer:** This plugin is NOT an official WooCommerce plugin and is NOT an official N8N plugin. It is an independent third-party integration developed by William Schons.
+
+![Version](https://img.shields.io/badge/version-1.0.2-blue.svg)
 ![WordPress](https://img.shields.io/badge/WordPress-5.0%2B-blue.svg)
 ![WooCommerce](https://img.shields.io/badge/WooCommerce-5.0%2B-purple.svg)
 ![PHP](https://img.shields.io/badge/PHP-7.4%2B-777BB4.svg)

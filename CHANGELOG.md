@@ -1,6 +1,21 @@
 # Changelog
 
-All notable changes to the N8N WooCommerce Integration plugin.
+All notable changes to the William Schons Webhook Integration plugin.
+
+## [1.0.2] - 2025-11-20
+
+### Fixed
+- WordPress.org coding standards compliance
+- Added proper escaping for all outputs
+- Added translators comments for placeholders
+- Removed debug error_log() calls
+- Added wp_unslash() before sanitization
+- Text domain changed to n8n-woo-webhook-integration
+
+### Changed
+- Added disclaimer: NOT official WooCommerce or N8N plugin
+- Updated plugin description to clarify independent third-party status
+- Cleaned up unnecessary documentation files
 
 ## [1.0.1] - 2025-11-19
 

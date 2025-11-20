@@ -1,6 +1,6 @@
-=== Schons Webhook Integration for N8N and WooCommerce ===
+=== William Schons Webhook Integration ===
 Contributors: williamschons
-Tags: n8n, woocommerce, webhook, automation, integration
+Tags: webhook, woocommerce, automation, integration, api
 Requires at least: 5.0
 Tested up to: 6.8
 Requires PHP: 7.4
@@ -8,7 +8,7 @@ Stable tag: 1.0.1
 License: GPL-2.0+
 License URI: http://www.gnu.org/licenses/gpl-2.0.txt
 
-Send WooCommerce order and customer data to N8N webhooks automatically with a modern glassmorphism interface.
+Send WooCommerce order and customer data to custom webhooks automatically with a modern glassmorphism interface. Perfect for automation workflows.
 
 == Description ==
 

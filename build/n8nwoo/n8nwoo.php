@@ -1,14 +1,15 @@
 <?php
 /**
- * Plugin Name: Schons Webhook Integration for N8N and WooCommerce
- * Plugin URI: https://github.com/williamschonsdev/n8n-woocommerce
- * Description: Envia dados completos de pedidos do WooCommerce para webhook do N8N
+ * Plugin Name: William Schons Webhook Integration
+ * Plugin URI: https://github.com/williamschonsdev/william-schons-webhook-integration
+ * Description: Send complete WooCommerce order and customer data to custom webhooks for automation workflows | Envia dados completos de pedidos e clientes do WooCommerce para webhooks personalizados | Envía datos completos de pedidos y clientes de WooCommerce a webhooks personalizados
  * Version: 1.0.1
  * Author: William Schons
  * Author URI: https://williamschons.com.br
  * License: GPL-2.0+
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
- * Text Domain: schons-webhooks-n8n-woo
+ * Text Domain: william-schons-webhook-integration
+ * Domain Path: /languages
  * Requires at least: 5.0
  * Requires PHP: 7.4
  * WC requires at least: 5.0
@@ -153,7 +154,7 @@ class N8NWoo {
             'order_status_changed' => array(
                 'label' => 'Status Alterado',
                 'description' => 'Dispara quando o status do pedido muda',
-                'icon' => '🔄',
+                'icon' => '🔃',
                 'category' => 'Pedidos'
             ),
             'order_note_added' => array(
@@ -177,7 +178,7 @@ class N8NWoo {
             'customer_deleted' => array(
                 'label' => 'Cliente Deletado',
                 'description' => 'Dispara quando um cliente é removido',
-                'icon' => '🗑️',
+                'icon' => '🗑',
                 'category' => 'Clientes'
             )
         );
@@ -1269,3 +1270,11 @@ function n8nwoo_woocommerce_missing_notice() {
     </div>
     <?php
 }
+
+// Adiciona link de configurações na página de plugins
+function n8nwoo_plugin_action_links($links) {
+    $settings_link = '<a href="' . admin_url('options-general.php?page=n8nwoo-settings') . '">Configurações</a>';
+    array_unshift($links, $settings_link);
+    return $links;
+}
+add_filter('plugin_action_links_' . plugin_basename(__FILE__), 'n8nwoo_plugin_action_links');

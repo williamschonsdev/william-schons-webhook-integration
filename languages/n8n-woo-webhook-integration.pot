@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: William Schons Webhook Integration 1.0.1\n"
-"Report-Msgid-Bugs-To: https://github.com/williamschonsdev/william-schons-webhook-integration/issues\n"
+"Report-Msgid-Bugs-To: https://github.com/williamschonsdev/n8n-woo-webhook-integration/issues\n"
 "POT-Creation-Date: 2025-11-20 00:00+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"

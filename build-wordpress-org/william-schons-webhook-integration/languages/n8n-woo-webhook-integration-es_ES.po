@@ -1,45 +1,45 @@
-# Português (Brasil) - William Schons Webhook Integration
+# Español - William Schons Webhook Integration
 msgid ""
 msgstr ""
-"Project-Id-Version: William Schons Webhook Integration 1.0.1\n"
-"Language: pt_BR\n"
+"Project-Id-Version: N8N WooCommerce Webhook Integration 1.0.1\n"
+"Language: es_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 # Menu
 msgid "Webhook Settings"
-msgstr "Configurações de Webhook"
+msgstr "Configuración de Webhook"
 
 msgid "Settings"
-msgstr "Configurações"
+msgstr "Configuración"
 
 # Header
 msgid "WS Webhook Integration"
-msgstr "WS Integração de Webhook"
+msgstr "WS Integración de Webhook"
 
 msgid "Configure your webhook URL and choose which events you want to monitor"
-msgstr "Configure a URL do webhook e escolha quais eventos você deseja monitorar"
+msgstr "Configure la URL del webhook y elija qué eventos desea monitorear"
 
 # Webhook URL Section
 msgid "Webhook URL"
-msgstr "URL do Webhook"
+msgstr "URL del Webhook"
 
 msgid "https://your-webhook-url.com/endpoint"
-msgstr "https://sua-url-webhook.com/endpoint"
+msgstr "https://tu-url-webhook.com/endpoint"
 
 msgid "Paste the complete webhook URL that will receive the data"
-msgstr "Cole a URL completa do webhook que receberá os dados"
+msgstr "Pegue la URL completa del webhook que recibirá los datos"
 
 msgid "Webhook configured and ready to send data"
-msgstr "Webhook configurado e pronto para enviar dados"
+msgstr "Webhook configurado y listo para enviar datos"
 
 # Events Section
 msgid "Events to Monitor"
-msgstr "Eventos para Monitorar"
+msgstr "Eventos para Monitorear"
 
 msgid "Use the toggles to enable/disable WooCommerce events"
-msgstr "Use os toggles para ativar/desativar eventos do WooCommerce"
+msgstr "Use los interruptores para activar/desactivar eventos de WooCommerce"
 
 msgid "Orders"
 msgstr "Pedidos"
@@ -49,122 +49,122 @@ msgstr "Clientes"
 
 # Order Events
 msgid "Order Created"
-msgstr "Pedido Criado"
+msgstr "Pedido Creado"
 
 msgid "Triggers when a new order is created"
-msgstr "Dispara quando um novo pedido é criado"
+msgstr "Se activa cuando se crea un nuevo pedido"
 
 msgid "Order Updated"
-msgstr "Pedido Atualizado"
+msgstr "Pedido Actualizado"
 
 msgid "Triggers when any order data is modified"
-msgstr "Dispara quando qualquer dado do pedido é modificado"
+msgstr "Se activa cuando se modifican los datos del pedido"
 
 msgid "Status Changed"
-msgstr "Status Alterado"
+msgstr "Estado Cambiado"
 
 msgid "Triggers when the order status changes"
-msgstr "Dispara quando o status do pedido muda"
+msgstr "Se activa cuando cambia el estado del pedido"
 
 msgid "Note Added"
-msgstr "Nota Adicionada"
+msgstr "Nota Añadida"
 
 msgid "Triggers when a note is added to the order"
-msgstr "Dispara quando uma nota é adicionada ao pedido"
+msgstr "Se activa cuando se añade una nota al pedido"
 
 # Customer Events
 msgid "Customer Created"
-msgstr "Cliente Criado"
+msgstr "Cliente Creado"
 
 msgid "Triggers when a new customer is registered"
-msgstr "Dispara quando um novo cliente é cadastrado"
+msgstr "Se activa cuando se registra un nuevo cliente"
 
 msgid "Customer Updated"
-msgstr "Cliente Atualizado"
+msgstr "Cliente Actualizado"
 
 msgid "Triggers when customer data is modified"
-msgstr "Dispara quando dados do cliente são modificados"
+msgstr "Se activa cuando se modifican los datos del cliente"
 
 msgid "Customer Deleted"
-msgstr "Cliente Deletado"
+msgstr "Cliente Eliminado"
 
 msgid "Triggers when a customer is removed"
-msgstr "Dispara quando um cliente é removido"
+msgstr "Se activa cuando se elimina un cliente"
 
 # Individual Webhooks
 msgid "Specific webhook or leave empty to use the main one"
-msgstr "Webhook específico ou deixe vazio para usar o principal"
+msgstr "Webhook específico o deje vacío para usar el principal"
 
 # Order Status Section
 msgid "Order Status to Monitor"
-msgstr "Status de Pedidos para Monitorar"
+msgstr "Estados de Pedido para Monitorear"
 
 msgid "Select which order statuses should trigger the webhook when changed. Leave empty to monitor ALL statuses"
-msgstr "Selecione para quais status de pedido o webhook deve ser disparado ao mudar. Deixe vazio para monitorar TODOS os status"
+msgstr "Seleccione qué estados de pedido deben activar el webhook al cambiar. Deje vacío para monitorear TODOS los estados"
 
 msgid "%d available statuses"
-msgstr "%d status disponíveis"
+msgstr "%d estados disponibles"
 
 # System Info
 msgid "System Information"
-msgstr "Informações do Sistema"
+msgstr "Información del Sistema"
 
 msgid "HPOS Compatible"
-msgstr "HPOS Compatível"
+msgstr "Compatible con HPOS"
 
 msgid "High-Performance Order Storage"
-msgstr "Armazenamento de Alto Desempenho"
+msgstr "Almacenamiento de Alto Rendimiento"
 
 msgid "Version %s"
-msgstr "Versão %s"
+msgstr "Versión %s"
 
 msgid "Plugin updated"
-msgstr "Plugin atualizado"
+msgstr "Plugin actualizado"
 
 # Buttons
 msgid "Save Settings"
-msgstr "Salvar Configurações"
+msgstr "Guardar Configuración"
 
 msgid "Test Webhook"
-msgstr "Testar Webhook"
+msgstr "Probar Webhook"
 
 # JavaScript Strings
 msgid "Please configure the webhook URL first"
-msgstr "Por favor, configure a URL do webhook primeiro"
+msgstr "Por favor, configure la URL del webhook primero"
 
 msgid "Sending..."
 msgstr "Enviando..."
 
 msgid "Error testing webhook"
-msgstr "Erro ao testar webhook"
+msgstr "Error al probar webhook"
 
 # Test Event Strings
 msgid "Test Event"
-msgstr "Testar Evento"
+msgstr "Probar Evento"
 
 msgid "Testing..."
-msgstr "Testando..."
+msgstr "Probando..."
 
 msgid "Test successful! Webhook received the data (HTTP %d)"
-msgstr "Teste bem-sucedido! Webhook recebeu os dados (HTTP %d)"
+msgstr "¡Prueba exitosa! El webhook recibió los datos (HTTP %d)"
 
 msgid "Test failed"
-msgstr "Teste falhou"
+msgstr "Prueba fallida"
 
 msgid "No permission to test webhook"
-msgstr "Sem permissão para testar webhook"
+msgstr "Sin permiso para probar webhook"
 
 msgid "Webhook URL not provided"
-msgstr "URL do webhook não fornecida"
+msgstr "URL del webhook no proporcionada"
 
 msgid "Event type not provided"
-msgstr "Tipo de evento não fornecido"
+msgstr "Tipo de evento no proporcionado"
 
 msgid "Connection error"
-msgstr "Erro de conexão"
+msgstr "Error de conexión"
 
 msgid "Webhook returned error (HTTP %d)"
-msgstr "Webhook retornou erro (HTTP %d)"
+msgstr "Webhook devolvió error (HTTP %d)"
 
 msgid "Test successful! Webhook received the data"
-msgstr "Teste bem-sucedido! Webhook recebeu os dados"
+msgstr "¡Prueba exitosa! El webhook recibió los datos"

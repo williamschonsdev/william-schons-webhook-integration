@@ -4,7 +4,7 @@ Tags: webhook, woocommerce, automation, integration, api
 Requires at least: 5.0
 Tested up to: 6.8
 Requires PHP: 7.4
-Stable tag: 1.0.2
+Stable tag: 1.0.3
 License: GPL-2.0+
 License URI: http://www.gnu.org/licenses/gpl-2.0.txt
 
@@ -111,6 +111,12 @@ Use the built-in "Test Webhook" button on the settings page. It sends sample dat
 
 == Changelog ==
 
+= 1.0.3 =
+* Fixed: Corrected text domain back to william-schons-webhook-integration
+* Fixed: All repository links updated to correct GitHub URL
+* Improved: Added comprehensive disclaimers about third-party status
+* Documentation: Cleaned up unnecessary markdown files
+
 = 1.0.2 =
 * Fixed: All WordPress.org coding standards compliance
 * Fixed: Added proper escaping for all outputs
@@ -136,6 +142,9 @@ Use the built-in "Test Webhook" button on the settings page. It sends sample dat
 * WooCommerce integration
 
 == Upgrade Notice ==
+
+= 1.0.3 =
+Critical update: Fixes text domain and repository references. All users should update immediately.
 
 = 1.0.2 =
 Important update: Full WordPress.org coding standards compliance. Recommended for all users.

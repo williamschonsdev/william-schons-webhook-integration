@@ -3,7 +3,7 @@
  * Plugin Name: William Schons Webhook Integration
  * Plugin URI: https://github.com/williamschonsdev/william-schons-webhook-integration
  * Description: Send WooCommerce data to custom webhooks for automation (N8N, Make, Zapier). NOT an official WooCommerce or N8N plugin. Independent third-party integration by William Schons | Envia dados do WooCommerce para webhooks personalizados. NÃO é plugin oficial WooCommerce ou N8N. Integração independente | Envía datos de WooCommerce a webhooks. NO es plugin oficial de WooCommerce o N8N. Integración independiente
- * Version: 1.0.2
+ * Version: 1.0.3
  * Author: William Schons
  * Author URI: https://williamschons.com.br
  * License: GPL-2.0+
@@ -921,7 +921,7 @@ class N8NWoo {
                         <div>
                             <span class="n8nwoo-badge n8nwoo-badge-info"><?php 
                             /* translators: %s is the plugin version number */
-                            printf(esc_html__('Version %s', 'william-schons-webhook-integration'), '1.0.2'); ?></span>
+                            printf(esc_html__('Version %s', 'william-schons-webhook-integration'), '1.0.3'); ?></span>
                             <p class="n8nwoo-help-text"><?php echo esc_html__('Plugin updated', 'william-schons-webhook-integration'); ?></p>
                         </div>
                     </div>
@@ -1471,7 +1471,7 @@ class N8NWoo {
             'timestamp' => current_time('mysql'),
             'message' => 'Este é um teste do webhook N8NWoo',
             'test' => true,
-            'plugin_version' => '1.0.2',
+            'plugin_version' => '1.0.3',
             'site_url' => get_site_url(),
             'sample_order' => array(
                 'id' => 12345,
@@ -1566,7 +1566,7 @@ class N8NWoo {
             'test' => true,
             'timestamp' => current_time('mysql'),
             'site_url' => get_site_url(),
-            'plugin_version' => '1.0.2'
+            'plugin_version' => '1.0.3'
         );
         
         switch ($event_key) {

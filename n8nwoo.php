@@ -241,46 +241,46 @@ class N8NWoo {
         // Eventos disponíveis
         $available_events = array(
             'order_created' => array(
-                'label' => 'Pedido Criado',
-                'description' => 'Dispara quando um novo pedido é criado',
+                'label' => __('Order Created', 'william-schons-webhook-integration'),
+                'description' => __('Triggers when a new order is created', 'william-schons-webhook-integration'),
                 'icon' => '🛒',
-                'category' => 'Pedidos'
+                'category' => __('Orders', 'william-schons-webhook-integration')
             ),
             'order_updated' => array(
-                'label' => 'Pedido Atualizado',
-                'description' => 'Dispara quando qualquer dado do pedido é modificado',
+                'label' => __('Order Updated', 'william-schons-webhook-integration'),
+                'description' => __('Triggers when any order data is modified', 'william-schons-webhook-integration'),
                 'icon' => '✏️',
-                'category' => 'Pedidos'
+                'category' => __('Orders', 'william-schons-webhook-integration')
             ),
             'order_status_changed' => array(
-                'label' => 'Status Alterado',
-                'description' => 'Dispara quando o status do pedido muda',
+                'label' => __('Status Changed', 'william-schons-webhook-integration'),
+                'description' => __('Triggers when the order status changes', 'william-schons-webhook-integration'),
                 'icon' => '🔃',
-                'category' => 'Pedidos'
+                'category' => __('Orders', 'william-schons-webhook-integration')
             ),
             'order_note_added' => array(
-                'label' => 'Nota Adicionada',
-                'description' => 'Dispara quando uma nota é adicionada ao pedido',
+                'label' => __('Note Added', 'william-schons-webhook-integration'),
+                'description' => __('Triggers when a note is added to the order', 'william-schons-webhook-integration'),
                 'icon' => '📝',
-                'category' => 'Pedidos'
+                'category' => __('Orders', 'william-schons-webhook-integration')
             ),
             'customer_created' => array(
-                'label' => 'Cliente Criado',
-                'description' => 'Dispara quando um novo cliente é cadastrado',
+                'label' => __('Customer Created', 'william-schons-webhook-integration'),
+                'description' => __('Triggers when a new customer is registered', 'william-schons-webhook-integration'),
                 'icon' => '👤',
-                'category' => 'Clientes'
+                'category' => __('Customers', 'william-schons-webhook-integration')
             ),
             'customer_updated' => array(
-                'label' => 'Cliente Atualizado',
-                'description' => 'Dispara quando dados do cliente são modificados',
+                'label' => __('Customer Updated', 'william-schons-webhook-integration'),
+                'description' => __('Triggers when customer data is modified', 'william-schons-webhook-integration'),
                 'icon' => '👥',
-                'category' => 'Clientes'
+                'category' => __('Customers', 'william-schons-webhook-integration')
             ),
             'customer_deleted' => array(
-                'label' => 'Cliente Deletado',
-                'description' => 'Dispara quando um cliente é removido',
+                'label' => __('Customer Deleted', 'william-schons-webhook-integration'),
+                'description' => __('Triggers when a customer is removed', 'william-schons-webhook-integration'),
                 'icon' => '🗑',
-                'category' => 'Clientes'
+                'category' => __('Customers', 'william-schons-webhook-integration')
             )
         );
         ?>
@@ -712,16 +712,16 @@ class N8NWoo {
                     
                     <?php if (!empty($webhook_url)): ?>
                         <div class="n8nwoo-info-box" style="margin-top: 15px;">
-                            <p>✓ Webhook configurado e pronto para enviar dados</p>
+                            <p>✓ <?php echo esc_html__('Webhook configured and ready to send data', 'william-schons-webhook-integration'); ?></p>
                         </div>
                     <?php endif; ?>
                 </div>
                 
                 <!-- Eventos para Monitorar -->
                 <div class="n8nwoo-card">
-                    <h2>🎯 Eventos para Monitorar</h2>
+                    <h2>🎯 <?php echo esc_html__('Events to Monitor', 'william-schons-webhook-integration'); ?></h2>
                     <p class="n8nwoo-help-text" style="margin-top: 0;">
-                        Use os toggles para ativar/desativar eventos do WooCommerce
+                        <?php echo esc_html__('Use the toggles to enable/disable WooCommerce events', 'william-schons-webhook-integration'); ?>
                     </p>
                     
                     <?php 
@@ -760,7 +760,7 @@ class N8NWoo {
                                                 type="url" 
                                                 name="n8nwoo_individual_webhooks[<?php echo $event_key; ?>]"
                                                 value="<?php echo esc_attr($individual_webhooks[$event_key] ?? ''); ?>"
-                                                placeholder="Webhook específico ou deixe vazio para usar o principal"
+                                                placeholder="<?php echo esc_attr__('Specific webhook or leave empty to use the main one', 'william-schons-webhook-integration'); ?>"
                                                 class="n8nwoo-webhook-individual-input"
                                             />
                                         </div>
@@ -773,12 +773,11 @@ class N8NWoo {
                 
                 <!-- Status de Pedidos para Monitorar -->
                 <div class="n8nwoo-card">
-                    <h2>📊 Status de Pedidos para Monitorar</h2>
+                    <h2>📊 <?php echo esc_html__('Order Status to Monitor', 'william-schons-webhook-integration'); ?></h2>
                     <p class="n8nwoo-help-text" style="margin-top: 0;">
-                        Selecione para quais status de pedido o webhook deve ser disparado ao mudar. 
-                        <strong>Deixe vazio para monitorar TODOS os status</strong>
+                        <?php echo esc_html__('Select which order statuses should trigger the webhook when changed. Leave empty to monitor ALL statuses', 'william-schons-webhook-integration'); ?>
                         <span class="n8nwoo-badge n8nwoo-badge-info" style="margin-left: 10px;">
-                            <?php echo count($order_statuses); ?> status disponíveis
+                            <?php printf(esc_html__('%d available statuses', 'william-schons-webhook-integration'), count($order_statuses)); ?>
                         </span>
                     </p>
                     
@@ -814,26 +813,26 @@ class N8NWoo {
                 
                 <!-- Compatibilidade HPOS -->
                 <div class="n8nwoo-card" style="background: #f0fdf4; border-color: #86efac;">
-                    <h2 style="border-color: #22c55e; color: #15803d;">✓ Informações do Sistema</h2>
+                    <h2 style="border-color: #22c55e; color: #15803d;">✓ <?php echo esc_html__('System Information', 'william-schons-webhook-integration'); ?></h2>
                     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px;">
                         <div>
-                            <span class="n8nwoo-badge n8nwoo-badge-success">✓ HPOS Compatível</span>
-                            <p class="n8nwoo-help-text">Armazenamento de Alto Desempenho</p>
+                            <span class="n8nwoo-badge n8nwoo-badge-success">✓ <?php echo esc_html__('HPOS Compatible', 'william-schons-webhook-integration'); ?></span>
+                            <p class="n8nwoo-help-text"><?php echo esc_html__('High-Performance Order Storage', 'william-schons-webhook-integration'); ?></p>
                         </div>
                         <div>
-                            <span class="n8nwoo-badge n8nwoo-badge-info">Versão 1.0.1</span>
-                            <p class="n8nwoo-help-text">Plugin atualizado</p>
+                            <span class="n8nwoo-badge n8nwoo-badge-info"><?php printf(esc_html__('Version %s', 'william-schons-webhook-integration'), '1.0.1'); ?></span>
+                            <p class="n8nwoo-help-text"><?php echo esc_html__('Plugin updated', 'william-schons-webhook-integration'); ?></p>
                         </div>
                     </div>
                 </div>
                 
                 <div class="n8nwoo-button-group">
                     <button type="submit" class="n8nwoo-submit-btn">
-                        💾 Salvar Configurações
+                        💾 <?php echo esc_html__('Save Settings', 'william-schons-webhook-integration'); ?>
                     </button>
                     <button type="button" class="n8nwoo-test-btn" onclick="testWebhook()" id="test-webhook-btn">
                         <span>🚀</span>
-                        <span>Testar Webhook</span>
+                        <span><?php echo esc_html__('Test Webhook', 'william-schons-webhook-integration'); ?></span>
                     </button>
                 </div>
                 
@@ -842,6 +841,15 @@ class N8NWoo {
         </div>
         
         <script>
+            // Strings traduzidas
+            const n8nwoo_i18n = {
+                'placeholder_individual_webhook': '<?php echo esc_js(__('Specific webhook or leave empty to use the main one', 'william-schons-webhook-integration')); ?>',
+                'error_no_webhook_url': '<?php echo esc_js(__('Please configure the webhook URL first', 'william-schons-webhook-integration')); ?>',
+                'sending': '<?php echo esc_js(__('Sending...', 'william-schons-webhook-integration')); ?>',
+                'test_webhook': '<?php echo esc_js(__('Test Webhook', 'william-schons-webhook-integration')); ?>',
+                'error_testing': '<?php echo esc_js(__('Error testing webhook', 'william-schons-webhook-integration')); ?>'
+            };
+            
             function toggleEventCheckbox(eventKey) {
                 const checkbox = document.getElementById('event_' + eventKey);
                 const card = checkbox.closest('.n8nwoo-event-item');
@@ -853,7 +861,7 @@ class N8NWoo {
                     if (!webhookField) {
                         const newField = document.createElement('div');
                         newField.className = 'n8nwoo-webhook-field';
-                        newField.innerHTML = '<input type="url" name="n8nwoo_individual_webhooks[' + eventKey + ']" value="" placeholder="Webhook específico ou deixe vazio para usar o principal" class="n8nwoo-webhook-individual-input" />';
+                        newField.innerHTML = '<input type="url" name="n8nwoo_individual_webhooks[' + eventKey + ']" value="" placeholder="' + n8nwoo_i18n.placeholder_individual_webhook + '" class="n8nwoo-webhook-individual-input" />';
                         card.appendChild(newField);
                     }
                 } else {
@@ -877,12 +885,12 @@ class N8NWoo {
                 
                 if (!webhookUrl) {
                     resultDiv.className = 'n8nwoo-test-result error';
-                    resultDiv.textContent = '❌ Por favor, configure a URL do webhook primeiro.';
+                    resultDiv.textContent = '❌ ' + n8nwoo_i18n.error_no_webhook_url;
                     return;
                 }
                 
                 btn.disabled = true;
-                btn.innerHTML = '<span>⏳</span><span>Enviando...</span>';
+                btn.innerHTML = '<span>⏳</span><span>' + n8nwoo_i18n.sending + '</span>';
                 resultDiv.style.display = 'none';
                 
                 fetch('<?php echo admin_url('admin-ajax.php'); ?>', {
@@ -895,7 +903,7 @@ class N8NWoo {
                 .then(response => response.json())
                 .then(data => {
                     btn.disabled = false;
-                    btn.innerHTML = '<span>🚀</span><span>Testar Webhook</span>';
+                    btn.innerHTML = '<span>🚀</span><span>' + n8nwoo_i18n.test_webhook + '</span>';
                     
                     if (data.success) {
                         resultDiv.className = 'n8nwoo-test-result success';
@@ -907,9 +915,9 @@ class N8NWoo {
                 })
                 .catch(error => {
                     btn.disabled = false;
-                    btn.innerHTML = '<span>🚀</span><span>Testar Webhook</span>';
+                    btn.innerHTML = '<span>🚀</span><span>' + n8nwoo_i18n.test_webhook + '</span>';
                     resultDiv.className = 'n8nwoo-test-result error';
-                    resultDiv.textContent = '❌ Erro ao testar webhook: ' + error.message;
+                    resultDiv.textContent = '❌ ' + n8nwoo_i18n.error_testing + ': ' + error.message;
                 });
             }
         </script>

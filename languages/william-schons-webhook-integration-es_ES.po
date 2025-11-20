@@ -7,18 +7,21 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+# Menu
 msgid "Webhook Settings"
 msgstr "Configuración de Webhook"
 
 msgid "Settings"
 msgstr "Configuración"
 
+# Header
 msgid "WS Webhook Integration"
 msgstr "WS Integración de Webhook"
 
 msgid "Configure your webhook URL and choose which events you want to monitor"
 msgstr "Configure la URL del webhook y elija qué eventos desea monitorear"
 
+# Webhook URL Section
 msgid "Webhook URL"
 msgstr "URL del Webhook"
 
@@ -27,3 +30,110 @@ msgstr "https://tu-url-webhook.com/endpoint"
 
 msgid "Paste the complete webhook URL that will receive the data"
 msgstr "Pegue la URL completa del webhook que recibirá los datos"
+
+msgid "Webhook configured and ready to send data"
+msgstr "Webhook configurado y listo para enviar datos"
+
+# Events Section
+msgid "Events to Monitor"
+msgstr "Eventos para Monitorear"
+
+msgid "Use the toggles to enable/disable WooCommerce events"
+msgstr "Use los interruptores para activar/desactivar eventos de WooCommerce"
+
+msgid "Orders"
+msgstr "Pedidos"
+
+msgid "Customers"
+msgstr "Clientes"
+
+# Order Events
+msgid "Order Created"
+msgstr "Pedido Creado"
+
+msgid "Triggers when a new order is created"
+msgstr "Se activa cuando se crea un nuevo pedido"
+
+msgid "Order Updated"
+msgstr "Pedido Actualizado"
+
+msgid "Triggers when any order data is modified"
+msgstr "Se activa cuando se modifican los datos del pedido"
+
+msgid "Status Changed"
+msgstr "Estado Cambiado"
+
+msgid "Triggers when the order status changes"
+msgstr "Se activa cuando cambia el estado del pedido"
+
+msgid "Note Added"
+msgstr "Nota Añadida"
+
+msgid "Triggers when a note is added to the order"
+msgstr "Se activa cuando se añade una nota al pedido"
+
+# Customer Events
+msgid "Customer Created"
+msgstr "Cliente Creado"
+
+msgid "Triggers when a new customer is registered"
+msgstr "Se activa cuando se registra un nuevo cliente"
+
+msgid "Customer Updated"
+msgstr "Cliente Actualizado"
+
+msgid "Triggers when customer data is modified"
+msgstr "Se activa cuando se modifican los datos del cliente"
+
+msgid "Customer Deleted"
+msgstr "Cliente Eliminado"
+
+msgid "Triggers when a customer is removed"
+msgstr "Se activa cuando se elimina un cliente"
+
+# Individual Webhooks
+msgid "Specific webhook or leave empty to use the main one"
+msgstr "Webhook específico o deje vacío para usar el principal"
+
+# Order Status Section
+msgid "Order Status to Monitor"
+msgstr "Estados de Pedido para Monitorear"
+
+msgid "Select which order statuses should trigger the webhook when changed. Leave empty to monitor ALL statuses"
+msgstr "Seleccione qué estados de pedido deben activar el webhook al cambiar. Deje vacío para monitorear TODOS los estados"
+
+msgid "%d available statuses"
+msgstr "%d estados disponibles"
+
+# System Info
+msgid "System Information"
+msgstr "Información del Sistema"
+
+msgid "HPOS Compatible"
+msgstr "Compatible con HPOS"
+
+msgid "High-Performance Order Storage"
+msgstr "Almacenamiento de Alto Rendimiento"
+
+msgid "Version %s"
+msgstr "Versión %s"
+
+msgid "Plugin updated"
+msgstr "Plugin actualizado"
+
+# Buttons
+msgid "Save Settings"
+msgstr "Guardar Configuración"
+
+msgid "Test Webhook"
+msgstr "Probar Webhook"
+
+# JavaScript Strings
+msgid "Please configure the webhook URL first"
+msgstr "Por favor, configure la URL del webhook primero"
+
+msgid "Sending..."
+msgstr "Enviando..."
+
+msgid "Error testing webhook"
+msgstr "Error al probar webhook"

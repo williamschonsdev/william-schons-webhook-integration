@@ -57,6 +57,7 @@ class N8NWoo {
         
         // AJAX para teste de webhook
         add_action('wp_ajax_n8nwoo_test_webhook', array($this, 'ajax_test_webhook'));
+        add_action('wp_ajax_n8nwoo_test_event_webhook', array($this, 'ajax_test_event_webhook'));
         
         // Carrega traduções
         add_action('init', array($this, 'load_textdomain'));
@@ -402,9 +403,11 @@ class N8NWoo {
                 border-radius: 16px;
                 padding: 20px;
                 transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-                cursor: pointer;
                 position: relative;
                 overflow: hidden;
+            }
+            .n8nwoo-event-checkbox {
+                display: none !important;
             }
             .n8nwoo-event-item::before {
                 content: '';
@@ -489,12 +492,75 @@ class N8NWoo {
                 font-size: 11px;
                 color: #a0aec0;
             }
+            .n8nwoo-test-event-btn {
+                margin-top: 10px;
+                padding: 8px 16px;
+                font-size: 13px;
+                font-weight: 600;
+                color: #667eea;
+                background: rgba(102, 126, 234, 0.1);
+                border: 1px solid rgba(102, 126, 234, 0.3);
+                border-radius: 8px;
+                cursor: pointer;
+                transition: all 0.3s;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 6px;
+                width: 100%;
+                position: relative;
+                z-index: 1;
+            }
+            .n8nwoo-test-event-btn:hover:not(:disabled) {
+                background: rgba(102, 126, 234, 0.2);
+                border-color: #667eea;
+                transform: translateY(-1px);
+            }
+            .n8nwoo-test-event-btn:disabled {
+                opacity: 0.6;
+                cursor: not-allowed;
+            }
+            .n8nwoo-test-result-inline {
+                margin-top: 8px;
+                padding: 8px 12px;
+                border-radius: 8px;
+                font-size: 12px;
+                font-weight: 500;
+                display: none;
+                animation: slideDown 0.3s ease;
+                position: relative;
+                z-index: 1;
+            }
+            .n8nwoo-test-result-inline.show {
+                display: block;
+            }
+            .n8nwoo-test-result-inline.success {
+                background: rgba(34, 197, 94, 0.15);
+                border: 1px solid rgba(34, 197, 94, 0.3);
+                color: #15803d;
+            }
+            .n8nwoo-test-result-inline.error {
+                background: rgba(239, 68, 68, 0.15);
+                border: 1px solid rgba(239, 68, 68, 0.3);
+                color: #dc2626;
+            }
+            @keyframes slideDown {
+                from {
+                    opacity: 0;
+                    transform: translateY(-10px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
             /* Apple-style Toggle Switch */
             .n8nwoo-toggle-wrapper {
                 position: absolute;
                 top: 20px;
                 right: 20px;
                 z-index: 2;
+                cursor: pointer;
             }
             .n8nwoo-toggle {
                 position: relative;
@@ -747,7 +813,7 @@ class N8NWoo {
                                     <div class="n8nwoo-toggle-wrapper" onclick="toggleEventCheckbox('<?php echo $event_key; ?>')">
                                         <div class="n8nwoo-toggle"></div>
                                     </div>
-                                    <div class="n8nwoo-event-label">
+                                    <div class="n8nwoo-event-label" onclick="toggleEventCheckbox('<?php echo $event_key; ?>')" style="cursor: pointer;">
                                         <span class="n8nwoo-event-icon"><?php echo $event['icon']; ?></span>
                                         <div class="n8nwoo-event-content">
                                             <h3><?php echo $event['label']; ?></h3>
@@ -758,12 +824,21 @@ class N8NWoo {
                                         <div class="n8nwoo-webhook-field">
                                             <input 
                                                 type="url" 
+                                                id="webhook_<?php echo $event_key; ?>"
                                                 name="n8nwoo_individual_webhooks[<?php echo $event_key; ?>]"
                                                 value="<?php echo esc_attr($individual_webhooks[$event_key] ?? ''); ?>"
                                                 placeholder="<?php echo esc_attr__('Specific webhook or leave empty to use the main one', 'william-schons-webhook-integration'); ?>"
                                                 class="n8nwoo-webhook-individual-input"
                                             />
                                         </div>
+                                        <button 
+                                            type="button" 
+                                            class="n8nwoo-test-event-btn" 
+                                            onclick="testEventWebhook(event, '<?php echo $event_key; ?>')">
+                                            <span>🧪</span>
+                                            <span><?php echo esc_html__('Test Event', 'william-schons-webhook-integration'); ?></span>
+                                        </button>
+                                        <div id="test-result-<?php echo $event_key; ?>" class="n8nwoo-test-result-inline"></div>
                                     <?php endif; ?>
                                 </div>
                             <?php endforeach; ?>
@@ -847,7 +922,11 @@ class N8NWoo {
                 'error_no_webhook_url': '<?php echo esc_js(__('Please configure the webhook URL first', 'william-schons-webhook-integration')); ?>',
                 'sending': '<?php echo esc_js(__('Sending...', 'william-schons-webhook-integration')); ?>',
                 'test_webhook': '<?php echo esc_js(__('Test Webhook', 'william-schons-webhook-integration')); ?>',
-                'error_testing': '<?php echo esc_js(__('Error testing webhook', 'william-schons-webhook-integration')); ?>'
+                'test_event': '<?php echo esc_js(__('Test Event', 'william-schons-webhook-integration')); ?>',
+                'testing': '<?php echo esc_js(__('Testing...', 'william-schons-webhook-integration')); ?>',
+                'error_testing': '<?php echo esc_js(__('Error testing webhook', 'william-schons-webhook-integration')); ?>',
+                'test_successful': '<?php echo esc_js(__('Test successful! Webhook received the data', 'william-schons-webhook-integration')); ?>',
+                'test_failed': '<?php echo esc_js(__('Test failed', 'william-schons-webhook-integration')); ?>'
             };
             
             function toggleEventCheckbox(eventKey) {
@@ -876,6 +955,58 @@ class N8NWoo {
                 const card = checkbox.closest('.n8nwoo-status-item');
                 checkbox.checked = !checkbox.checked;
                 card.classList.toggle('active', checkbox.checked);
+            }
+            
+            function testEventWebhook(e, eventKey) {
+                e.stopPropagation();
+                
+                const btn = e.currentTarget;
+                const resultDiv = document.getElementById('test-result-' + eventKey);
+                const mainWebhookUrl = document.getElementById('n8nwoo_webhook_url').value;
+                const individualWebhookInput = document.getElementById('webhook_' + eventKey);
+                const individualWebhookUrl = individualWebhookInput ? individualWebhookInput.value : '';
+                const webhookUrl = individualWebhookUrl || mainWebhookUrl;
+                
+                if (!webhookUrl) {
+                    resultDiv.className = 'n8nwoo-test-result-inline error show';
+                    resultDiv.textContent = '❌ ' + n8nwoo_i18n.error_no_webhook_url;
+                    setTimeout(() => resultDiv.classList.remove('show'), 5000);
+                    return;
+                }
+                
+                btn.disabled = true;
+                btn.innerHTML = '<span>⏳</span><span>' + n8nwoo_i18n.testing + '</span>';
+                resultDiv.classList.remove('show');
+                
+                fetch('<?php echo admin_url('admin-ajax.php'); ?>', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: 'action=n8nwoo_test_event_webhook&event_key=' + eventKey + '&webhook_url=' + encodeURIComponent(webhookUrl) + '&nonce=<?php echo wp_create_nonce('n8nwoo_test'); ?>'
+                })
+                .then(response => response.json())
+                .then(data => {
+                    btn.disabled = false;
+                    btn.innerHTML = '<span>🧪</span><span>' + n8nwoo_i18n.test_event + '</span>';
+                    
+                    if (data.success) {
+                        resultDiv.className = 'n8nwoo-test-result-inline success show';
+                        resultDiv.textContent = '✅ ' + data.data.message;
+                    } else {
+                        resultDiv.className = 'n8nwoo-test-result-inline error show';
+                        resultDiv.textContent = '❌ ' + data.data.message;
+                    }
+                    
+                    setTimeout(() => resultDiv.classList.remove('show'), 5000);
+                })
+                .catch(error => {
+                    btn.disabled = false;
+                    btn.innerHTML = '<span>🧪</span><span>' + n8nwoo_i18n.test_event + '</span>';
+                    resultDiv.className = 'n8nwoo-test-result-inline error show';
+                    resultDiv.textContent = '❌ ' + n8nwoo_i18n.error_testing + ': ' + error.message;
+                    setTimeout(() => resultDiv.classList.remove('show'), 5000);
+                });
             }
             
             function testWebhook() {
@@ -1358,6 +1489,175 @@ class N8NWoo {
             wp_send_json_success(array('message' => "Webhook testado com sucesso! Status HTTP: {$status_code}"));
         } else {
             wp_send_json_error(array('message' => "Webhook retornou erro. Status HTTP: {$status_code}"));
+        }
+    }
+    
+    public function ajax_test_event_webhook() {
+        check_ajax_referer('n8nwoo_test', 'nonce');
+        
+        if (!current_user_can('manage_options')) {
+            wp_send_json_error(array('message' => __('No permission to test webhook', 'william-schons-webhook-integration')));
+        }
+        
+        $webhook_url = isset($_POST['webhook_url']) ? esc_url_raw($_POST['webhook_url']) : '';
+        $event_key = isset($_POST['event_key']) ? sanitize_text_field($_POST['event_key']) : '';
+        
+        if (empty($webhook_url)) {
+            wp_send_json_error(array('message' => __('Webhook URL not provided', 'william-schons-webhook-integration')));
+        }
+        
+        if (empty($event_key)) {
+            wp_send_json_error(array('message' => __('Event type not provided', 'william-schons-webhook-integration')));
+        }
+        
+        // Dados de teste baseados no tipo de evento
+        $test_data = $this->get_test_data_for_event($event_key);
+        
+        $json_data = wp_json_encode($test_data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+        
+        $response = wp_remote_post($webhook_url, array(
+            'method' => 'POST',
+            'timeout' => 30,
+            'headers' => array(
+                'Content-Type' => 'application/json',
+                'User-Agent' => 'WS-Webhook/1.0-Test',
+            ),
+            'body' => $json_data,
+        ));
+        
+        if (is_wp_error($response)) {
+            wp_send_json_error(array('message' => __('Connection error', 'william-schons-webhook-integration') . ': ' . $response->get_error_message()));
+        }
+        
+        $status_code = wp_remote_retrieve_response_code($response);
+        
+        if ($status_code >= 200 && $status_code < 300) {
+            wp_send_json_success(array('message' => sprintf(__('Test successful! Webhook received the data (HTTP %d)', 'william-schons-webhook-integration'), $status_code)));
+        } else {
+            wp_send_json_error(array('message' => sprintf(__('Webhook returned error (HTTP %d)', 'william-schons-webhook-integration'), $status_code)));
+        }
+    }
+    
+    private function get_test_data_for_event($event_key) {
+        $base_data = array(
+            'test' => true,
+            'timestamp' => current_time('mysql'),
+            'site_url' => get_site_url(),
+            'plugin_version' => '1.0.1'
+        );
+        
+        switch ($event_key) {
+            case 'order_created':
+                return array_merge($base_data, array(
+                    'event_type' => 'order_created',
+                    'event_name' => __('Order Created', 'william-schons-webhook-integration'),
+                    'order' => array(
+                        'id' => 12345,
+                        'order_number' => '12345',
+                        'status' => 'processing',
+                        'total' => '150.00',
+                        'currency' => 'BRL',
+                        'customer' => array(
+                            'id' => 1,
+                            'email' => 'customer@example.com',
+                            'first_name' => 'João',
+                            'last_name' => 'Silva'
+                        ),
+                        'items' => array(
+                            array(
+                                'product_id' => 100,
+                                'name' => 'Sample Product',
+                                'quantity' => 2,
+                                'total' => '100.00'
+                            )
+                        )
+                    )
+                ));
+                
+            case 'order_updated':
+                return array_merge($base_data, array(
+                    'event_type' => 'order_updated',
+                    'event_name' => __('Order Updated', 'william-schons-webhook-integration'),
+                    'order' => array(
+                        'id' => 12345,
+                        'order_number' => '12345',
+                        'status' => 'processing',
+                        'total' => '175.50',
+                        'updated_fields' => array('total', 'billing_address')
+                    )
+                ));
+                
+            case 'order_status_changed':
+                return array_merge($base_data, array(
+                    'event_type' => 'order_status_changed',
+                    'event_name' => __('Status Changed', 'william-schons-webhook-integration'),
+                    'order' => array(
+                        'id' => 12345,
+                        'order_number' => '12345',
+                        'old_status' => 'pending',
+                        'new_status' => 'processing'
+                    )
+                ));
+                
+            case 'order_note_added':
+                return array_merge($base_data, array(
+                    'event_type' => 'order_note_added',
+                    'event_name' => __('Note Added', 'william-schons-webhook-integration'),
+                    'order' => array(
+                        'id' => 12345,
+                        'order_number' => '12345'
+                    ),
+                    'note' => array(
+                        'id' => 789,
+                        'content' => 'This is a test order note',
+                        'customer_note' => false
+                    )
+                ));
+                
+            case 'customer_created':
+                return array_merge($base_data, array(
+                    'event_type' => 'customer_created',
+                    'event_name' => __('Customer Created', 'william-schons-webhook-integration'),
+                    'customer' => array(
+                        'id' => 100,
+                        'email' => 'newcustomer@example.com',
+                        'first_name' => 'Maria',
+                        'last_name' => 'Santos',
+                        'username' => 'mariasantos',
+                        'role' => 'customer'
+                    )
+                ));
+                
+            case 'customer_updated':
+                return array_merge($base_data, array(
+                    'event_type' => 'customer_updated',
+                    'event_name' => __('Customer Updated', 'william-schons-webhook-integration'),
+                    'customer' => array(
+                        'id' => 100,
+                        'email' => 'customer@example.com',
+                        'first_name' => 'João',
+                        'last_name' => 'Silva',
+                        'updated_fields' => array('phone', 'billing_address')
+                    )
+                ));
+                
+            case 'customer_deleted':
+                return array_merge($base_data, array(
+                    'event_type' => 'customer_deleted',
+                    'event_name' => __('Customer Deleted', 'william-schons-webhook-integration'),
+                    'customer' => array(
+                        'id' => 100,
+                        'email' => 'deletedcustomer@example.com',
+                        'deletion_date' => current_time('mysql')
+                    )
+                ));
+                
+            default:
+                return array_merge($base_data, array(
+                    'event_type' => $event_key,
+                    'event_name' => 'Test Event',
+                    'message' => 'This is a test webhook call'
+                ));
         }
     }
 }

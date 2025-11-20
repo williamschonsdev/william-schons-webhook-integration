@@ -137,3 +137,34 @@ msgstr "Enviando..."
 
 msgid "Error testing webhook"
 msgstr "Erro ao testar webhook"
+
+# Test Event Strings
+msgid "Test Event"
+msgstr "Testar Evento"
+
+msgid "Testing..."
+msgstr "Testando..."
+
+msgid "Test successful! Webhook received the data (HTTP %d)"
+msgstr "Teste bem-sucedido! Webhook recebeu os dados (HTTP %d)"
+
+msgid "Test failed"
+msgstr "Teste falhou"
+
+msgid "No permission to test webhook"
+msgstr "Sem permissão para testar webhook"
+
+msgid "Webhook URL not provided"
+msgstr "URL do webhook não fornecida"
+
+msgid "Event type not provided"
+msgstr "Tipo de evento não fornecido"
+
+msgid "Connection error"
+msgstr "Erro de conexão"
+
+msgid "Webhook returned error (HTTP %d)"
+msgstr "Webhook retornou erro (HTTP %d)"
+
+msgid "Test successful! Webhook received the data"
+msgstr "Teste bem-sucedido! Webhook recebeu os dados"

@@ -153,7 +153,7 @@ class N8NWoo {
             'order_status_changed' => array(
                 'label' => 'Status Alterado',
                 'description' => 'Dispara quando o status do pedido muda',
-                'icon' => '🔄',
+                'icon' => '🔃',
                 'category' => 'Pedidos'
             ),
             'order_note_added' => array(
@@ -177,7 +177,7 @@ class N8NWoo {
             'customer_deleted' => array(
                 'label' => 'Cliente Deletado',
                 'description' => 'Dispara quando um cliente é removido',
-                'icon' => '🗑️',
+                'icon' => '🗑',
                 'category' => 'Clientes'
             )
         );
@@ -1269,3 +1269,11 @@ function n8nwoo_woocommerce_missing_notice() {
     </div>
     <?php
 }
+
+// Adiciona link de configurações na página de plugins
+function n8nwoo_plugin_action_links($links) {
+    $settings_link = '<a href="' . admin_url('options-general.php?page=n8nwoo-settings') . '">Configurações</a>';
+    array_unshift($links, $settings_link);
+    return $links;
+}
+add_filter('plugin_action_links_' . plugin_basename(__FILE__), 'n8nwoo_plugin_action_links');

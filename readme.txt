@@ -100,11 +100,12 @@ Use the built-in "Test Webhook" button on the settings page. It sends sample dat
 
 == Screenshots ==
 
-1. Modern glassmorphism settings interface with toggle switches
-2. Event configuration with individual webhook URLs
-3. Order status filtering options
-4. Built-in webhook testing tool
-5. Example N8N workflow integration
+1. Main settings page with glassmorphism design - Configure webhook URL and view system information
+2. Event monitoring cards with Apple-style toggles - Enable/disable WooCommerce events individually
+3. Individual webhook configuration per event - Set specific webhook URLs for each event type
+4. Order status filtering - Choose which order statuses should trigger webhooks
+5. Test buttons for each event - Send test data and verify webhook connections in real-time
+6. Custom admin menu with gradient icon - Easy access from WordPress sidebar
 
 == Changelog ==
 

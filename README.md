@@ -190,7 +190,7 @@ A: Data is sent over HTTPS using WordPress's built-in wp_remote_post() function.
 
 ## Support
 
-For issues, questions, or contributions, please visit the [GitHub repository](https://github.com/williamschonsdev/n8n-woocommerce).
+For issues, questions, or contributions, please visit the [GitHub repository](https://github.com/williamschonsdev/william-schons-webhook-integration).
 
 ## License
 

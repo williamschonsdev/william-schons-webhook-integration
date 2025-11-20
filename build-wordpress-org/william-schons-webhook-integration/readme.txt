@@ -152,7 +152,7 @@ Major UI overhaul with glassmorphism design, customer events, and individual web
 * N8N instance (cloud or self-hosted)
 
 = Support =
-For issues or feature requests, visit [GitHub repository](https://github.com/williamschonsdev/n8n-woocommerce)
+For issues or feature requests, visit [GitHub repository](https://github.com/williamschonsdev/william-schons-webhook-integration)
 
 = Documentation =
-Full documentation available at [GitHub](https://github.com/williamschonsdev/n8n-woocommerce)
+Full documentation available at [GitHub](https://github.com/williamschonsdev/william-schons-webhook-integration)

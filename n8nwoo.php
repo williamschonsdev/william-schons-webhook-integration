@@ -402,9 +402,12 @@ class N8NWoo {
                 border: 1px solid rgba(255, 255, 255, 0.8);
                 border-radius: 16px;
                 padding: 20px;
+                padding-top: 20px;
                 transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
                 position: relative;
                 overflow: hidden;
+                display: flex;
+                flex-direction: column;
             }
             .n8nwoo-event-checkbox {
                 display: none !important;
@@ -442,82 +445,91 @@ class N8NWoo {
                 position: relative;
                 z-index: 1;
                 pointer-events: none;
+                padding-right: 70px;
             }
             .n8nwoo-event-icon {
-                font-size: 32px;
+                font-size: 36px;
                 margin-right: 15px;
                 flex-shrink: 0;
                 filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+                line-height: 1;
             }
             .n8nwoo-event-content {
                 flex: 1;
+                min-width: 0;
             }
             .n8nwoo-event-content h3 {
-                margin: 0 0 6px 0;
+                margin: 0 0 8px 0;
                 font-size: 16px;
                 color: #1a202c;
                 font-weight: 600;
+                line-height: 1.3;
             }
             .n8nwoo-event-content p {
                 margin: 0;
                 font-size: 13px;
-                color: #4a5568;
-                line-height: 1.5;
+                color: #64748b;
+                line-height: 1.6;
             }
             .n8nwoo-webhook-field {
-                margin-top: 15px;
-                padding-top: 15px;
-                border-top: 1px solid rgba(102, 126, 234, 0.2);
+                margin-top: 16px;
+                padding-top: 16px;
+                border-top: 1.5px solid rgba(102, 126, 234, 0.15);
                 position: relative;
                 z-index: 1;
             }
             .n8nwoo-webhook-individual-input {
                 width: 100%;
-                padding: 10px 14px;
+                padding: 11px 14px;
                 font-size: 12px;
-                border: 1px solid rgba(102, 126, 234, 0.3);
-                border-radius: 8px;
-                background: rgba(255, 255, 255, 0.9);
+                border: 1.5px solid rgba(102, 126, 234, 0.25);
+                border-radius: 10px;
+                background: rgba(255, 255, 255, 0.95);
                 font-family: 'Monaco', 'Courier New', monospace;
-                transition: all 0.3s;
+                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
                 pointer-events: auto;
+                color: #334155;
             }
             .n8nwoo-webhook-individual-input:focus {
                 outline: none;
                 border-color: #667eea;
                 background: white;
-                box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+                box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
             }
             .n8nwoo-webhook-individual-input::placeholder {
                 font-size: 11px;
-                color: #a0aec0;
+                color: #94a3b8;
             }
             .n8nwoo-test-event-btn {
-                margin-top: 10px;
-                padding: 8px 16px;
+                margin-top: 12px;
+                padding: 10px 18px;
                 font-size: 13px;
                 font-weight: 600;
                 color: #667eea;
-                background: rgba(102, 126, 234, 0.1);
-                border: 1px solid rgba(102, 126, 234, 0.3);
-                border-radius: 8px;
+                background: rgba(102, 126, 234, 0.08);
+                border: 1.5px solid rgba(102, 126, 234, 0.25);
+                border-radius: 10px;
                 cursor: pointer;
-                transition: all 0.3s;
+                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                gap: 6px;
+                gap: 8px;
                 width: 100%;
                 position: relative;
                 z-index: 1;
             }
             .n8nwoo-test-event-btn:hover:not(:disabled) {
-                background: rgba(102, 126, 234, 0.2);
+                background: rgba(102, 126, 234, 0.15);
                 border-color: #667eea;
-                transform: translateY(-1px);
+                transform: translateY(-2px);
+                box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+            }
+            .n8nwoo-test-event-btn:active:not(:disabled) {
+                transform: translateY(0);
             }
             .n8nwoo-test-event-btn:disabled {
-                opacity: 0.6;
+                opacity: 0.5;
                 cursor: not-allowed;
             }
             .n8nwoo-test-result-inline {
@@ -557,10 +569,11 @@ class N8NWoo {
             /* Apple-style Toggle Switch */
             .n8nwoo-toggle-wrapper {
                 position: absolute;
-                top: 20px;
-                right: 20px;
-                z-index: 2;
+                top: 16px;
+                right: 16px;
+                z-index: 10;
                 cursor: pointer;
+                padding: 4px;
             }
             .n8nwoo-toggle {
                 position: relative;
@@ -587,8 +600,13 @@ class N8NWoo {
                 transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
                 box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
             }
+            .n8nwoo-event-item.active .n8nwoo-toggle-wrapper {
+                background: linear-gradient(135deg, #667eea, #764ba2);
+                box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+            }
             .n8nwoo-event-item.active .n8nwoo-toggle::before {
                 transform: translateX(20px);
+                box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
             }
             .n8nwoo-status-grid {
                 display: grid;

@@ -820,34 +820,34 @@ class N8NWoo {
                     ?>
                     
                     <?php foreach ($events_by_category as $category => $events): ?>
-                        <div class="n8nwoo-category-title"><?php echo $category; ?></div>
+                        <div class="n8nwoo-category-title"><?php echo esc_html($category); ?></div>
                         <div class="n8nwoo-events-grid">
                             <?php foreach ($events as $event_key => $event): ?>
                                 <div class="n8nwoo-event-item <?php echo in_array($event_key, $enabled_events) ? 'active' : ''; ?>">
                                     <input 
                                         type="checkbox" 
-                                        id="event_<?php echo $event_key; ?>"
+                                        id="event_<?php echo esc_attr($event_key); ?>"
                                         name="n8nwoo_enabled_events[]" 
-                                        value="<?php echo $event_key; ?>"
+                                        value="<?php echo esc_attr($event_key); ?>"
                                         class="n8nwoo-event-checkbox"
                                         <?php checked(in_array($event_key, $enabled_events)); ?>
                                     />
-                                    <div class="n8nwoo-toggle-wrapper" onclick="toggleEventCheckbox('<?php echo $event_key; ?>')">
+                                    <div class="n8nwoo-toggle-wrapper" onclick="toggleEventCheckbox('<?php echo esc_js($event_key); ?>')">
                                         <div class="n8nwoo-toggle"></div>
                                     </div>
-                                    <div class="n8nwoo-event-label" onclick="toggleEventCheckbox('<?php echo $event_key; ?>')" style="cursor: pointer;">
-                                        <span class="n8nwoo-event-icon"><?php echo $event['icon']; ?></span>
+                                    <div class="n8nwoo-event-label" onclick="toggleEventCheckbox('<?php echo esc_js($event_key); ?>')" style="cursor: pointer;">
+                                        <span class="n8nwoo-event-icon"><?php echo esc_html($event['icon']); ?></span>
                                         <div class="n8nwoo-event-content">
-                                            <h3><?php echo $event['label']; ?></h3>
-                                            <p><?php echo $event['description']; ?></p>
+                                            <h3><?php echo esc_html($event['label']); ?></h3>
+                                            <p><?php echo esc_html($event['description']); ?></p>
                                         </div>
                                     </div>
                                     <?php if (in_array($event_key, $enabled_events)): ?>
                                         <div class="n8nwoo-webhook-field">
                                             <input 
                                                 type="url" 
-                                                id="webhook_<?php echo $event_key; ?>"
-                                                name="n8nwoo_individual_webhooks[<?php echo $event_key; ?>]"
+                                                id="webhook_<?php echo esc_attr($event_key); ?>"
+                                                name="n8nwoo_individual_webhooks[<?php echo esc_attr($event_key); ?>]"
                                                 value="<?php echo esc_attr($individual_webhooks[$event_key] ?? ''); ?>"
                                                 placeholder="<?php echo esc_attr__('Specific webhook or leave empty to use the main one', 'n8n-woo-webhook-integration'); ?>"
                                                 class="n8nwoo-webhook-individual-input"
@@ -856,11 +856,11 @@ class N8NWoo {
                                         <button 
                                             type="button" 
                                             class="n8nwoo-test-event-btn" 
-                                            onclick="testEventWebhook(event, '<?php echo $event_key; ?>')">
+                                            onclick="testEventWebhook(event, '<?php echo esc_js($event_key); ?>')">
                                             <span>🧪</span>
                                             <span><?php echo esc_html__('Test Event', 'n8n-woo-webhook-integration'); ?></span>
                                         </button>
-                                        <div id="test-result-<?php echo $event_key; ?>" class="n8nwoo-test-result-inline"></div>
+                                        <div id="test-result-<?php echo esc_attr($event_key); ?>" class="n8nwoo-test-result-inline"></div>
                                     <?php endif; ?>
                                 </div>
                             <?php endforeach; ?>
@@ -874,7 +874,9 @@ class N8NWoo {
                     <p class="n8nwoo-help-text" style="margin-top: 0;">
                         <?php echo esc_html__('Select which order statuses should trigger the webhook when changed. Leave empty to monitor ALL statuses', 'n8n-woo-webhook-integration'); ?>
                         <span class="n8nwoo-badge n8nwoo-badge-info" style="margin-left: 10px;">
-                            <?php printf(esc_html__('%d available statuses', 'n8n-woo-webhook-integration'), count($order_statuses)); ?>
+                            <?php 
+                            /* translators: %d is the number of available order statuses */
+                            printf(esc_html__('%d available statuses', 'n8n-woo-webhook-integration'), count($order_statuses)); ?>
                         </span>
                     </p>
                     
@@ -891,13 +893,13 @@ class N8NWoo {
                             $is_checked = in_array($clean_key, $enabled_statuses);
                             ?>
                             <div class="n8nwoo-status-item <?php echo $is_checked ? 'active' : ''; ?>" 
-                                 onclick="toggleStatusCheckbox('<?php echo $clean_key; ?>')">
-                                <label for="status_<?php echo $clean_key; ?>" class="n8nwoo-status-label">
+                                 onclick="toggleStatusCheckbox('<?php echo esc_js($clean_key); ?>')">
+                                <label for="status_<?php echo esc_attr($clean_key); ?>" class="n8nwoo-status-label">
                                     <input 
                                         type="checkbox" 
-                                        id="status_<?php echo $clean_key; ?>"
+                                        id="status_<?php echo esc_attr($clean_key); ?>"
                                         name="n8nwoo_enabled_statuses[]" 
-                                        value="<?php echo $clean_key; ?>"
+                                        value="<?php echo esc_attr($clean_key); ?>"
                                         class="n8nwoo-status-checkbox"
                                         <?php checked($is_checked); ?>
                                     />
@@ -917,7 +919,9 @@ class N8NWoo {
                             <p class="n8nwoo-help-text"><?php echo esc_html__('High-Performance Order Storage', 'n8n-woo-webhook-integration'); ?></p>
                         </div>
                         <div>
-                            <span class="n8nwoo-badge n8nwoo-badge-info"><?php printf(esc_html__('Version %s', 'n8n-woo-webhook-integration'), '1.0.1'); ?></span>
+                            <span class="n8nwoo-badge n8nwoo-badge-info"><?php 
+                            /* translators: %s is the plugin version number */
+                            printf(esc_html__('Version %s', 'n8n-woo-webhook-integration'), '1.0.1'); ?></span>
                             <p class="n8nwoo-help-text"><?php echo esc_html__('Plugin updated', 'n8n-woo-webhook-integration'); ?></p>
                         </div>
                     </div>
@@ -1000,12 +1004,12 @@ class N8NWoo {
                 btn.innerHTML = '<span>⏳</span><span>' + n8nwoo_i18n.testing + '</span>';
                 resultDiv.classList.remove('show');
                 
-                fetch('<?php echo admin_url('admin-ajax.php'); ?>', {
+                fetch('<?php echo esc_url(admin_url('admin-ajax.php')); ?>', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/x-www-form-urlencoded',
                     },
-                    body: 'action=n8nwoo_test_event_webhook&event_key=' + eventKey + '&webhook_url=' + encodeURIComponent(webhookUrl) + '&nonce=<?php echo wp_create_nonce('n8nwoo_test'); ?>'
+                    body: 'action=n8nwoo_test_event_webhook&event_key=' + eventKey + '&webhook_url=' + encodeURIComponent(webhookUrl) + '&nonce=<?php echo esc_js(wp_create_nonce('n8nwoo_test')); ?>'
                 })
                 .then(response => response.json())
                 .then(data => {
@@ -1046,12 +1050,12 @@ class N8NWoo {
                 btn.innerHTML = '<span>⏳</span><span>' + n8nwoo_i18n.sending + '</span>';
                 resultDiv.style.display = 'none';
                 
-                fetch('<?php echo admin_url('admin-ajax.php'); ?>', {
+                fetch('<?php echo esc_url(admin_url('admin-ajax.php')); ?>', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/x-www-form-urlencoded',
                     },
-                    body: 'action=n8nwoo_test_webhook&webhook_url=' + encodeURIComponent(webhookUrl) + '&nonce=<?php echo wp_create_nonce('n8nwoo_test'); ?>'
+                    body: 'action=n8nwoo_test_webhook&webhook_url=' + encodeURIComponent(webhookUrl) + '&nonce=<?php echo esc_js(wp_create_nonce('n8nwoo_test')); ?>'
                 })
                 .then(response => response.json())
                 .then(data => {
@@ -1259,7 +1263,6 @@ class N8NWoo {
     
     private function send_to_webhook($data) {
         if (!$data) {
-            error_log('N8NWoo: Dados inválidos');
             return false;
         }
         
@@ -1267,7 +1270,6 @@ class N8NWoo {
         $webhook_url = $this->get_webhook_url_for_event($event_type);
         
         if (empty($webhook_url)) {
-            error_log('N8NWoo: Nenhum webhook configurado para ' . $event_type);
             return false;
         }
         
@@ -1284,17 +1286,14 @@ class N8NWoo {
         ));
         
         if (is_wp_error($response)) {
-            error_log('N8NWoo: Erro ao enviar - ' . $response->get_error_message());
             return false;
         }
         
         $status_code = wp_remote_retrieve_response_code($response);
         
         if ($status_code >= 200 && $status_code < 300) {
-            error_log("N8NWoo: Enviado para {$event_type} - Status {$status_code}");
             return true;
         } else {
-            error_log("N8NWoo: Falha {$event_type} - Status {$status_code}");
             return false;
         }
     }
@@ -1461,7 +1460,7 @@ class N8NWoo {
             wp_send_json_error(array('message' => 'Sem permissão para testar webhook'));
         }
         
-        $webhook_url = isset($_POST['webhook_url']) ? esc_url_raw($_POST['webhook_url']) : '';
+        $webhook_url = isset($_POST['webhook_url']) ? esc_url_raw(wp_unslash($_POST['webhook_url'])) : '';
         
         if (empty($webhook_url)) {
             wp_send_json_error(array('message' => 'URL do webhook não fornecida'));
@@ -1521,8 +1520,8 @@ class N8NWoo {
             wp_send_json_error(array('message' => __('No permission to test webhook', 'n8n-woo-webhook-integration')));
         }
         
-        $webhook_url = isset($_POST['webhook_url']) ? esc_url_raw($_POST['webhook_url']) : '';
-        $event_key = isset($_POST['event_key']) ? sanitize_text_field($_POST['event_key']) : '';
+        $webhook_url = isset($_POST['webhook_url']) ? esc_url_raw(wp_unslash($_POST['webhook_url'])) : '';
+        $event_key = isset($_POST['event_key']) ? sanitize_text_field(wp_unslash($_POST['event_key'])) : '';
         
         if (empty($webhook_url)) {
             wp_send_json_error(array('message' => __('Webhook URL not provided', 'n8n-woo-webhook-integration')));
@@ -1554,8 +1553,10 @@ class N8NWoo {
         $status_code = wp_remote_retrieve_response_code($response);
         
         if ($status_code >= 200 && $status_code < 300) {
+            /* translators: %d is the HTTP status code */
             wp_send_json_success(array('message' => sprintf(__('Test successful! Webhook received the data (HTTP %d)', 'n8n-woo-webhook-integration'), $status_code)));
         } else {
+            /* translators: %d is the HTTP status code */
             wp_send_json_error(array('message' => sprintf(__('Webhook returned error (HTTP %d)', 'n8n-woo-webhook-integration'), $status_code)));
         }
     }

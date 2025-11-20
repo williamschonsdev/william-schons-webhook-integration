@@ -57,6 +57,16 @@ class N8NWoo {
         
         // AJAX para teste de webhook
         add_action('wp_ajax_n8nwoo_test_webhook', array($this, 'ajax_test_webhook'));
+        
+        // Carrega traduções
+        add_action('init', array($this, 'load_textdomain'));
+    }
+    
+    /**
+     * Carrega os arquivos de tradução
+     */
+    public function load_textdomain() {
+        load_plugin_textdomain('william-schons-webhook-integration', false, dirname(plugin_basename(__FILE__)) . '/languages/');
     }
     
     /**
@@ -674,8 +684,8 @@ class N8NWoo {
         
         <div class="wrap n8nwoo-wrapper">
             <div class="n8nwoo-header">
-                <h1>⚡ N8N WooCommerce Webhook</h1>
-                <p>Configure o webhook do N8N e escolha quais eventos você deseja monitorar</p>
+                <h1>⚡ <?php echo esc_html__('WS Webhook Integration', 'william-schons-webhook-integration'); ?></h1>
+                <p><?php echo esc_html__('Configure your webhook URL and choose which events you want to monitor', 'william-schons-webhook-integration'); ?></p>
             </div>
             
             <form method="post" action="options.php">
@@ -686,18 +696,18 @@ class N8NWoo {
                 
                 <!-- Webhook URL -->
                 <div class="n8nwoo-card">
-                    <h2>🔗 URL do Webhook N8N</h2>
+                    <h2>🔗 <?php echo esc_html__('Webhook URL', 'william-schons-webhook-integration'); ?></h2>
                     <input 
                         type="url" 
                         id="n8nwoo_webhook_url" 
                         name="n8nwoo_webhook_url" 
                         value="<?php echo esc_attr($webhook_url); ?>" 
                         class="n8nwoo-webhook-input"
-                        placeholder="https://seu-n8n.com/webhook/seu-webhook-id"
+                        placeholder="<?php echo esc_attr__('https://your-webhook-url.com/endpoint', 'william-schons-webhook-integration'); ?>"
                         required
                     />
                     <p class="n8nwoo-help-text">
-                        Cole a URL completa do webhook do N8N que receberá os dados dos pedidos
+                        <?php echo esc_html__('Paste the complete webhook URL that will receive the data', 'william-schons-webhook-integration'); ?>
                     </p>
                     
                     <?php if (!empty($webhook_url)): ?>

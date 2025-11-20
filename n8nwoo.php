@@ -1,14 +1,14 @@
 <?php
 /**
- * Plugin Name: Schons Webhook Integration for N8N and WooCommerce
- * Plugin URI: https://github.com/williamschonsdev/n8n-woocommerce
+ * Plugin Name: William Schons Webhook Integration for N8N and WooCommerce
+ * Plugin URI: https://github.com/williamschonsdev/william-schons-webhook-integration
  * Description: Envia dados completos de pedidos do WooCommerce para webhook do N8N
  * Version: 1.0.1
  * Author: William Schons
  * Author URI: https://williamschons.com.br
  * License: GPL-2.0+
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
- * Text Domain: schons-webhooks-n8n-woo
+ * Text Domain: william-schons-webhook-integration
  * Requires at least: 5.0
  * Requires PHP: 7.4
  * WC requires at least: 5.0

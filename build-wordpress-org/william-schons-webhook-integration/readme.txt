@@ -4,7 +4,7 @@ Tags: webhook, woocommerce, automation, integration, api
 Requires at least: 5.0
 Tested up to: 6.8
 Requires PHP: 7.4
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 License: GPL-2.0+
 License URI: http://www.gnu.org/licenses/gpl-2.0.txt
 
@@ -12,7 +12,9 @@ Send WooCommerce order and customer data to custom webhooks automatically with a
 
 == Description ==
 
-A powerful WordPress plugin that bridges WooCommerce with N8N automation platform. Monitor orders, customers, and products in real-time and send data to N8N webhooks for automated workflows.
+**IMPORTANT DISCLAIMER:** This plugin is NOT an official WooCommerce plugin and is NOT an official N8N plugin. It is an independent third-party integration tool developed by William Schons to facilitate webhook integrations.
+
+A powerful WordPress plugin that bridges WooCommerce with automation platforms like N8N, Zapier, Make.com, and others. Monitor orders, customers, and products in real-time and send data to custom webhooks for automated workflows.
 
 = Key Features =
 
@@ -109,6 +111,14 @@ Use the built-in "Test Webhook" button on the settings page. It sends sample dat
 
 == Changelog ==
 
+= 1.0.2 =
+* Fixed: All WordPress.org coding standards compliance
+* Fixed: Added proper escaping for all outputs
+* Fixed: Added translators comments for placeholders
+* Fixed: Removed debug error_log() calls
+* Fixed: Added wp_unslash() before sanitization
+* Fixed: Changed text domain to william-schons-webhook-integration
+
 = 1.0.1 =
 * Added glassmorphism UI design
 * Implemented Apple-style toggle switches
@@ -126,6 +136,9 @@ Use the built-in "Test Webhook" button on the settings page. It sends sample dat
 * WooCommerce integration
 
 == Upgrade Notice ==
+
+= 1.0.2 =
+Important update: Full WordPress.org coding standards compliance. Recommended for all users.
 
 = 1.0.1 =
 Major UI overhaul with glassmorphism design, customer events, and individual webhook support.

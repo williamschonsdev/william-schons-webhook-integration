@@ -117,7 +117,7 @@ Use the built-in "Test Webhook" button on the settings page. It sends sample dat
 * Fixed: Added translators comments for placeholders
 * Fixed: Removed debug error_log() calls
 * Fixed: Added wp_unslash() before sanitization
-* Fixed: Changed text domain to n8n-woo-webhook-integration
+* Fixed: Changed text domain to william-schons-webhook-integration
 
 = 1.0.1 =
 * Added glassmorphism UI design

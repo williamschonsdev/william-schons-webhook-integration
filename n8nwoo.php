@@ -3,7 +3,7 @@
  * Plugin Name: William Schons Webhook Integration
  * Plugin URI: https://github.com/williamschonsdev/william-schons-webhook-integration
  * Description: Send complete WooCommerce order and customer data to custom webhooks for automation workflows like Make or N8N | Envia dados completos de pedidos e clientes do WooCommerce para webhooks personalizados como Make, N8N | Envía datos completos de pedidos y clientes de WooCommerce a webhooks personalizados como Make, N8N
- * Version: 1.0.1
+ * Version: 1.0.2
  * Author: William Schons
  * Author URI: https://williamschons.com.br
  * License: GPL-2.0+
@@ -921,7 +921,7 @@ class N8NWoo {
                         <div>
                             <span class="n8nwoo-badge n8nwoo-badge-info"><?php 
                             /* translators: %s is the plugin version number */
-                            printf(esc_html__('Version %s', 'n8n-woo-webhook-integration'), '1.0.1'); ?></span>
+                            printf(esc_html__('Version %s', 'n8n-woo-webhook-integration'), '1.0.2'); ?></span>
                             <p class="n8nwoo-help-text"><?php echo esc_html__('Plugin updated', 'n8n-woo-webhook-integration'); ?></p>
                         </div>
                     </div>
@@ -1471,7 +1471,7 @@ class N8NWoo {
             'timestamp' => current_time('mysql'),
             'message' => 'Este é um teste do webhook N8NWoo',
             'test' => true,
-            'plugin_version' => '1.0.1',
+            'plugin_version' => '1.0.2',
             'site_url' => get_site_url(),
             'sample_order' => array(
                 'id' => 12345,
@@ -1566,7 +1566,7 @@ class N8NWoo {
             'test' => true,
             'timestamp' => current_time('mysql'),
             'site_url' => get_site_url(),
-            'plugin_version' => '1.0.1'
+            'plugin_version' => '1.0.2'
         );
         
         switch ($event_key) {

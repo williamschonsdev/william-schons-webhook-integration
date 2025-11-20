@@ -109,6 +109,14 @@ Use the built-in "Test Webhook" button on the settings page. It sends sample dat
 
 == Changelog ==
 
+= 1.0.2 =
+* Fixed: All WordPress.org coding standards compliance
+* Fixed: Added proper escaping for all outputs
+* Fixed: Added translators comments for placeholders
+* Fixed: Removed debug error_log() calls
+* Fixed: Added wp_unslash() before sanitization
+* Fixed: Changed text domain to n8n-woo-webhook-integration
+
 = 1.0.1 =
 * Added glassmorphism UI design
 * Implemented Apple-style toggle switches
@@ -126,6 +134,9 @@ Use the built-in "Test Webhook" button on the settings page. It sends sample dat
 * WooCommerce integration
 
 == Upgrade Notice ==
+
+= 1.0.2 =
+Important update: Full WordPress.org coding standards compliance. Recommended for all users.
 
 = 1.0.1 =
 Major UI overhaul with glassmorphism design, customer events, and individual webhook support.
